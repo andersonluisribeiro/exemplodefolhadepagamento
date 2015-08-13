@@ -40,24 +40,21 @@ public class FolhaDePagamento {
 	}
 	
 	public Double inss(){		
-		Double salarioBruto = salarioBruto();
-		Double inss = 0.0;
+		Double salarioBruto = salarioBruto();	
 		
 		for(Aliquota aliquota : tabelaDeInss.getAliquotas()){
 			
 			if(aliquota.getValorFixo() !=  null 
 					&& salarioBruto > aliquota.getSalarioInicial()){
-				inss = aliquota.getValorFixo();
-			}
-			
-			if(salarioBruto >= aliquota.getSalarioInicial() &&
+				return aliquota.getValorFixo();
+			}else if(salarioBruto >= aliquota.getSalarioInicial() &&
 					salarioBruto <= aliquota.getSalarioFinal()){
-				inss = salarioBruto * aliquota.getValor();
+				return salarioBruto * aliquota.getValor();
 			}
 			
 		}
 		
-		return inss;
+		return 0.0;
 	}
 	
 	
