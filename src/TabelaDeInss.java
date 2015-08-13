@@ -21,8 +21,12 @@ public class TabelaDeInss {
 		Aliquota quarta = new Aliquota(4663.76, null, null, 513.02);
 		
 		List<Aliquota> aliquotasFail = new ArrayList<>();
+		aliquotasFail.add(primeira);
+		aliquotasFail.add(segunda);
+		aliquotasFail.add(terceira);
+		aliquotasFail.add(quarta);
 		
-		return aliquotas;
+		return aliquotasFail;
 	}
 
 	public void setAliquotas(List<Aliquota> aliquotas) {
