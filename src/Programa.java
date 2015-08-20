@@ -21,10 +21,13 @@ public class Programa {
 		folha.setAno(2015);
 		folha.setEmpregado(empregado);
 		folha.setTabelaDeInss(tabelaDeInss);
+		folha.setAdiantamento(1000.00);
 		
 		System.out.println("O salário base da folha é:" + folha.salarioBase());
 		System.out.println("O salário bruto da folha é: " + folha.salarioBruto());
 		System.out.println("O inss é: " + folha.inss());
+		System.out.println("O adiantamento é: " + folha.getAdiantamento());
+		System.out.println("O salário líquido é: " + folha.salarioLiquido());
 		
 	}
 
