@@ -5,6 +5,7 @@ public class FolhaDePagamento {
 	private Integer ano;
 	private Empregado empregado;
 	private TabelaDeInss tabelaDeInss;
+	private TabelaDeIRRF tabelaDeIRRF;
 	private Double adiantamento;
 
 	public Integer getMes() {
@@ -33,6 +34,14 @@ public class FolhaDePagamento {
 
 	public TabelaDeInss getTabelaDeInss() {
 		return tabelaDeInss;
+	}
+
+	public TabelaDeIRRF getTabelaDeIRRF() {
+		return tabelaDeIRRF;
+	}
+
+	public void setTabelaDeIRRF(TabelaDeIRRF tabelaDeIRRF) {
+		this.tabelaDeIRRF = tabelaDeIRRF;
 	}
 
 	public void setTabelaDeInss(TabelaDeInss tabelaDeInss) {
@@ -73,6 +82,17 @@ public class FolhaDePagamento {
 
 	public Double salarioLiquido() {
 		return salarioBruto() - inss() - getAdiantamento();
+	}
+	
+	public Double baseDeCalculoDoIRRF(){
+		return salarioBruto() - 
+				inss() - 
+				deducaoDosDependentesNoIRRF() ;
+	}
+	
+	public Double deducaoDosDependentesNoIRRF(){
+		return getEmpregado().getQuantidadeDeDependentes() * 
+				getTabelaDeIRRF().getValorPorDependente();
 	}
 
 }

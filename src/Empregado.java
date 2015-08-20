@@ -5,6 +5,7 @@ public class Empregado {
 	private String nome;
 	private String cpf;
 	private Cargo cargo;
+	private Integer quantidadeDeDependentes;
 	
 	public String getMatricula() {
 		return matricula;
@@ -30,6 +31,11 @@ public class Empregado {
 	public void setCargo(Cargo cargo) {
 		this.cargo = cargo;
 	}
-	
+	public Integer getQuantidadeDeDependentes() {
+		return quantidadeDeDependentes;
+	}
+	public void setQuantidadeDeDependentes(Integer quantidadeDeDependentes) {
+		this.quantidadeDeDependentes = quantidadeDeDependentes;
+	}
 
 }
