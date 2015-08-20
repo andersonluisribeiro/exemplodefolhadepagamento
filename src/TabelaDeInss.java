@@ -4,8 +4,7 @@ import java.util.List;
 public class TabelaDeInss {
 
 	private Integer anoDeVigencia;
-	private List<Aliquota> aliquotas;
-
+	
 	public Integer getAnoDeVigencia() {
 		return anoDeVigencia;
 	}
@@ -27,11 +26,6 @@ public class TabelaDeInss {
 		aliquotasFail.add(quarta);
 		
 		return aliquotasFail;
-	}
-
-	public void setAliquotas(List<Aliquota> aliquotas) {
-		this.aliquotas = aliquotas;
-	}
-	
+	}	
 	
 }
