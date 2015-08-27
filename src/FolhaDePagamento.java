@@ -94,5 +94,33 @@ public class FolhaDePagamento {
 		return getEmpregado().getQuantidadeDeDependentes() * 
 				getTabelaDeIRRF().getValorPorDependente();
 	}
+	
+	public Double impostoDeRenda(){
+		Double baseDeCalculo = baseDeCalculoDoIRRF();
+		Double valorDoImposto = 0.0;
+		
+		for(AliquotaDeIRRF aliquotaDeIRRF : tabelaDeIRRF.getAliquotas()){
+			
+			if(aliquotaDeIRRF.getSalarioFinal() ==null &&
+					aliquotaDeIRRF.getSalarioInicial() < baseDeCalculo){
+				
+				valorDoImposto = (baseDeCalculo * aliquotaDeIRRF.getValor()) - 
+						aliquotaDeIRRF.getParcelaADeduzir();
+				
+			}
+			
+			if(aliquotaDeIRRF.getSalarioFinal() != null &&
+					aliquotaDeIRRF.getSalarioInicial() <  baseDeCalculo &&
+					aliquotaDeIRRF.getSalarioFinal() > baseDeCalculo){
+				
+				valorDoImposto = (baseDeCalculo * aliquotaDeIRRF.getValor()) - 
+						aliquotaDeIRRF.getParcelaADeduzir();
+				
+			}
+			
+		}
+		
+		return valorDoImposto;
+	}
 
 }
